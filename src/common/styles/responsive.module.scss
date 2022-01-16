@@ -1,0 +1,22 @@
+$breakpoint-device-mobile: 576px;
+$breakpoint-device-tablet: 768px;
+$breakpoint-device-desktop: 992px;
+$breakpoint-device-large: 1200px;
+
+:export {
+  breakpoint-device-mobile: $breakpoint-device-mobile;
+  breakpoint-device-tablet: $breakpoint-device-tablet;
+  breakpoint-device-desktop: $breakpoint-device-desktop;
+  breakpoint-device-large: $breakpoint-device-large;
+}
+
+@mixin responsive-tablet-up {
+  @media (min-width: $breakpoint-device-tablet) {
+    @content;
+  }
+}
+@mixin responsive-to-mobile {
+  @media (max-width: $breakpoint-device-mobile) {
+    @content;
+  }
+}

@@ -1,0 +1,75 @@
+@import "@styles/base";
+
+$wrapper-width: 1rem;
+$wrapper-height: 29rem;
+
+$volume-width: 0.4rem;
+$volume-height: 4rem;
+
+$latch-height: 2.5rem;
+
+.root {
+  position: absolute;
+  height: $wrapper-height;
+  width: 1rem;
+  z-index: 2;
+  left: calc(#{$wrapper-width} * -1 - #{$device-border});
+  top: 7rem;
+  .control-button {
+    &-up,
+    &-down {
+      border: none;
+      padding: 0;
+      transition: transform 0.5s ease-in-out;
+      &:focus {
+        transform: translateX(calc(#{$volume-width}));
+      }
+      height: $volume-height;
+      width: $volume-width;
+      position: absolute;
+      right: 0;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      background-color: #232323;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        width: 2px;
+        height: 80%;
+        opacity: 0.5;
+        background-color: #fdfdfd;
+      }
+    }
+    &-latch {
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      height: $latch-height;
+      width: $volume-width;
+      background-color: #232323;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        width: 2px;
+        height: 80%;
+        opacity: 0.5;
+        background-color: #fdfdfd;
+      }
+    }
+
+    &-up {
+      top: 5rem;
+    }
+    &-down {
+      top: 10rem;
+    }
+  }
+}

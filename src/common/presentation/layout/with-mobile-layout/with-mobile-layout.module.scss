@@ -1,0 +1,11 @@
+.root {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  background-image: url("/static/images/bgcolor-1.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
