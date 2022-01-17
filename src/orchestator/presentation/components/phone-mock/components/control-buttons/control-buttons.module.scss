@@ -1,0 +1,115 @@
+@import "@orchestator/styles/theme";
+$wrapper-width: 1rem;
+$wrapper-height: 29rem;
+
+$volume-width: 0.4rem;
+$volume-height: 4rem;
+
+$latch-height: 2.5rem;
+
+.left {
+  position: absolute;
+  height: $wrapper-height;
+  width: $wrapper-width;
+  left: calc(#{$wrapper-width} * -1);
+  top: 7rem;
+  z-index: 1;
+  .control-button {
+    &-up,
+    &-down {
+      z-index: 1;
+      border: none;
+      padding: 0;
+      transition: transform 0.5s ease-in-out;
+      &:focus,
+      &:hover {
+        transform: translateX(calc(#{$volume-width}));
+      }
+      height: $volume-height;
+      width: $volume-width;
+      position: absolute;
+      right: 0;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      background-color: #232323;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        width: 2px;
+        height: 80%;
+        opacity: 0.5;
+        background-color: #fdfdfd;
+      }
+    }
+    &-latch {
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      height: $latch-height;
+      width: $volume-width;
+      background-color: #232323;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        width: 2px;
+        height: 80%;
+        opacity: 0.5;
+        background-color: #fdfdfd;
+      }
+    }
+
+    &-up {
+      top: 5rem;
+    }
+    &-down {
+      top: 10rem;
+    }
+  }
+}
+
+.right {
+  position: absolute;
+  height: 10rem;
+  width: $wrapper-width;
+  right: calc(#{$wrapper-width} * -1);
+  top: 12rem;
+  z-index: 1;
+  .control-button {
+    &-unlock {
+      z-index: 1;
+      border: none;
+      padding: 0;
+      transition: transform 0.5s ease-in-out;
+      &:focus,
+      &:hover {
+        transform: translateX(calc(-0.5rem));
+      }
+      height: 6rem;
+      width: 0.5rem;
+      position: absolute;
+      left: 0;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      background-color: #232323;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: "";
+        width: 2px;
+        height: 80%;
+        opacity: 0.5;
+        background-color: #fdfdfd;
+      }
+    }
+  }
+}
