@@ -34,8 +34,8 @@ export async function getServerSideProps(
 
   return {
     props: {
-      ip: req.connection.remoteAddress,
-      locale: req.connection.remoteAddress,
+      ip: req.headers["x-real-ip"],
+      locale: locale,
     },
   };
 }
