@@ -1,6 +1,9 @@
 .root {
   height: 100vh;
+  max-height: 100vh;
   width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
   background-color: white;
   background-image: url("/static/images/bgcolor-1.png");
   background-size: cover;
