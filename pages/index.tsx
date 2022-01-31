@@ -8,7 +8,8 @@ import cx from "classnames";
 import styles from "./home-page.module.scss";
 import { AppThumbnail } from "@orchestator/presentation/components";
 
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
+  console.log({ props });
   return (
     <BaseLayout>
       <div className={styles.bg}></div>
