@@ -7,6 +7,7 @@ import type {
 import cx from "classnames";
 import styles from "./home-page.module.scss";
 import { AppThumbnail } from "@orchestator/presentation/components";
+import { CountryLocationService } from "@core/services/country-location-service";
 
 const Home: NextPage = (props: any) => {
   console.log({ props });
@@ -32,10 +33,20 @@ export async function getServerSideProps(
 ): Promise<GetServerSidePropsResult<any>> {
   const { locale, req } = Props;
 
+  const wan_ip = req?.headers["x-real-ip"] ? req.headers["x-real-ip"] : null;
+
+  const country_req = wan_ip
+    ? (
+        await new CountryLocationService().getCountryLocationByIP(
+          req.headers["x-real-ip"] as string
+        )
+      ).countrycode
+    : "default";
+
   return {
     props: {
-      ip: req.headers["x-real-ip"],
-      locale: locale,
+      ip: wan_ip,
+      country_req,
     },
   };
 }
